@@ -10,8 +10,23 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.12
+    rev: v0.12.5
     hooks:
       - id: ruff-check
         args: [--fix, --exit-non-zero-on-fix, --show-fixes]
       - id: ruff-format
+
+  - repo: https://github.com/numpy/numpydoc
+    rev: v1.9.0
+    hooks:
+      - id: numpydoc-validation
+        args: ["--ignore", "GL08", "ES01", "PR01", "SA01", "EX01", "--"]
+
+  - repo: local
+    hooks:
+      - id: filename_checker
+        name: filename-checker
+        entry: python filename_checker.py
+        language: system
+        types: [python]
+        pass_filenames: true
