@@ -8,6 +8,7 @@
 
 5. Add views for normal requests (sync async)
 6. Add Models and try to serialize it to json
+4. create models through datamodel-codegen --input swagger.yaml --output model.py
 
 7. Data validation ???
 
@@ -19,3 +20,4 @@ python manage.py startapp api
 add urls to project urls
 create views
 add routers
+datamodel-codegen --input swagger.yaml --output model.py

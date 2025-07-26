@@ -8,48 +8,91 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
             ],
             options={
-                'verbose_name': 'Category',
-                'verbose_name_plural': 'Categorys',
-                'default_related_name': 'categorys',
+                "verbose_name": "Category",
+                "verbose_name_plural": "Categorys",
+                "default_related_name": "categorys",
             },
         ),
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
             ],
             options={
-                'verbose_name': 'Tag',
-                'verbose_name_plural': 'Tags',
-                'default_related_name': 'tags',
+                "verbose_name": "Tag",
+                "verbose_name_plural": "Tags",
+                "default_related_name": "tags",
             },
         ),
         migrations.CreateModel(
-            name='Pet',
+            name="Pet",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('photoUrls', models.URLField()),
-                ('status', models.CharField(blank=True, choices=[('available', 'available'), ('pending', 'pending'), ('sold', 'sold')], max_length=100, null=True)),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='pets.category')),
-                ('tags', models.ManyToManyField(to='pets.tag')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("photoUrls", models.URLField()),
+                (
+                    "status",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("available", "available"),
+                            ("pending", "pending"),
+                            ("sold", "sold"),
+                        ],
+                        max_length=100,
+                        null=True,
+                    ),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="pets.category",
+                    ),
+                ),
+                ("tags", models.ManyToManyField(to="pets.tag")),
             ],
             options={
-                'verbose_name': 'pet',
-                'verbose_name_plural': 'pets',
-                'default_related_name': 'pets',
+                "verbose_name": "pet",
+                "verbose_name_plural": "pets",
+                "default_related_name": "pets",
             },
         ),
     ]
