@@ -8,7 +8,8 @@ class Category(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
 
 class Pet(models.Model):
-    STATUS_CHOICES = ( ('available', 'Available'), ('pending', 'Pending'), ('sold', 'Sold') ) name = models.CharField(max_length=100)
+    STATUS_CHOICES = ( ('available', 'Available'), ('pending', 'Pending'), ('sold', 'Sold') )
+    name = models.CharField(max_length=100)
     category = models.ForeignKey("Category", blank=True, null=True, on_delete=models.SET_NULL)
     photoUrls = models.URLField()
     tags = models.ManyToManyField(Tag, related_name="pets")
