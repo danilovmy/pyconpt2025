@@ -1,7 +1,10 @@
 
 1. Created a project
+
 2. Add API static documentation (documentation first approach)
-3. and visualizer and  manual test suite
+
+3. and visualizer and manual test suite
+
 4. Add an error general serializer.
 
 #_____________________________________________-
